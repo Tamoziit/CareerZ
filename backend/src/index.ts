@@ -7,6 +7,11 @@ import cookieParser from "cookie-parser";
 import helmet from "helmet";
 import morgan from "morgan";
 
+import connectToUserDB from "./db/userDB";
+import connectToRecruiterDB from "./db/recruiterDB";
+import applicantAuthRoutes from "./routes/applicants.routes/auth.routes";
+import { client } from "./redis/client";
+
 const PORT = process.env.PORT || 3000;
 
 const app = express();
@@ -20,7 +25,7 @@ const corOpts = {
     ],
     allowedHeaders: [
         'Content-Type',
-        'Authorization',
+        'Authorization'
     ],
     credentials: true
 };
@@ -38,6 +43,16 @@ app.get('/api/v1', (req: Request, res: Response) => {
     res.send('Server Up & Running!');
 });
 
+app.use("/api/v1/applicant/auth", applicantAuthRoutes);
+
 app.listen(PORT, () => {
     console.log(`Server is running on Port: ${PORT}`);
+    connectToUserDB();
+    connectToRecruiterDB();
+
+    if (client) {
+        console.log("Redis connected");
+    } else {
+        console.log("Error in connecting to Redis");
+    }
 });
