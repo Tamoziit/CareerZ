@@ -45,8 +45,7 @@ const ApplicantSchema = new mongoose.Schema({
         default: []
     },
     resume: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Resumes"
+        type: String
     },
     education: [
         {
@@ -87,6 +86,21 @@ const ApplicantSchema = new mongoose.Schema({
             },
             endDate: {
                 type: String,
+            }
+        }
+    ],
+    projects: [
+        {
+            name: {
+                type: String,
+                required: true
+            },
+            description: {
+                type: String,
+                required: true
+            },
+            url: {
+                type: String
             }
         }
     ],
