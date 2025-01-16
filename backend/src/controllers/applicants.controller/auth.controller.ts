@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { ApplicantSignupBody } from "../../types/types";
+import { ApplicantLoginBody, ApplicantSignupBody } from "../../types/types";
 import Applicant from "../../models/user.model";
 import bcrypt from "bcryptjs";
 import generateTokenAndSetCookie from "../../utils/generateTokenAndSetCookie";
@@ -88,7 +88,6 @@ export const signup = async (req: Request, res: Response) => {
                     education: newApplicant.education,
                     experience: newApplicant.experience,
                     projects: newApplicant.projects,
-                    applications: newApplicant.applications,
                     location: newApplicant.location,
                     socials: newApplicant.socials,
                     token
@@ -102,7 +101,7 @@ export const signup = async (req: Request, res: Response) => {
 
 export const login = async (req: Request, res: Response) => {
     try {
-        const { email, password } = req.body;
+        const { email, password }: ApplicantLoginBody = req.body;
         const applicant = await Applicant.findOne({ email });
         if (!applicant) {
             res.status(400).json({ error: "Cannot find User" });
@@ -144,7 +143,6 @@ export const login = async (req: Request, res: Response) => {
                 education: applicant.education,
                 experience: applicant.experience,
                 projects: applicant.projects,
-                applications: applicant.applications,
                 location: applicant.location,
                 socials: applicant.socials,
                 token

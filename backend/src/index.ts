@@ -9,8 +9,11 @@ import morgan from "morgan";
 
 import connectToUserDB from "./db/userDB";
 import connectToRecruiterDB from "./db/recruiterDB";
-import applicantAuthRoutes from "./routes/applicants.routes/auth.routes";
 import { client } from "./redis/client";
+
+import adminRoutes from "./routes/admin/admin.routes";
+import applicantAuthRoutes from "./routes/applicants.routes/auth.routes";
+import applicantResumeRoutes from "./routes/applicants.routes/resume.routes";
 
 const PORT = process.env.PORT || 3000;
 
@@ -43,7 +46,9 @@ app.get('/api/v1', (req: Request, res: Response) => {
     res.send('Server Up & Running!');
 });
 
+app.use("/api/v1/admin", adminRoutes);
 app.use("/api/v1/applicant/auth", applicantAuthRoutes);
+app.use("/api/v1/applicant/resume", applicantResumeRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server is running on Port: ${PORT}`);
