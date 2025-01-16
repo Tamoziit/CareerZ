@@ -67,6 +67,7 @@ const ParticleBackground = () => {
                         },
                     },
                 }}
+                className="-z-10"
             />
         </div>
     );

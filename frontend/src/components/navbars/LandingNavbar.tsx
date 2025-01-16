@@ -25,7 +25,7 @@ const LandingNavbar = () => {
 		{
 			name: "Login",
 			icon: <MdOutlineLogin />,
-			link: "/login",
+			link: "/applicant/login",
 		},
 	];
 
@@ -85,7 +85,7 @@ const LandingNavbar = () => {
 
 			{/* Mobile Navigation */}
 			{isMenuOpen && (
-				<div className="absolute top-full right-0 w-full p-3 lg:hidden bg-white/5 backdrop-blur-md shadow-md border border-white/20">
+				<div className="absolute top-full right-0 w-full p-3 lg:hidden bg-white/5 backdrop-blur-xl shadow-md border border-white/20">
 					<ul className="flex flex-col items-center space-y-4 py-4">
 						{items.map((item, _idx) => (
 							<li key={_idx} className="flex items-center gap-2">
