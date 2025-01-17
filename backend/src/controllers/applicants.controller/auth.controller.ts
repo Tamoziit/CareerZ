@@ -127,7 +127,7 @@ export const login = async (req: Request, res: Response) => {
         await client.set(`CZ-user:${applicant._id}`, JSON.stringify(payload));
         await client.expire(`CZ-user:${applicant._id}`, 30 * 24 * 60 * 60);
 
-        res.status(201)
+        res.status(200)
             .header("Authorization", `Bearer ${token}`)
             .json({
                 _id: applicant._id,
