@@ -8,7 +8,7 @@ import RecruiterLogin from "./pages/auth/recruiters/RecruiterLogin";
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-800 via-blue-900 to-black">
+    <div className="min-h-screen bg-gradient-to-br from-blue-800 to-black">
       <ParticleBackground />
       <Routes>
         <Route path="/" element={<Landing />} />

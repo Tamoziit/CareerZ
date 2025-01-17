@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
 import LandingNavbar from "../../components/navbars/LandingNavbar";
+import About from "../../components/landing/About";
+import Companies from "../../components/landing/Companies";
+import Contact from "../../components/landing/Contact";
+import Footer from "../../components/Footer";
 
 const Landing = () => {
 	return (
@@ -10,7 +14,7 @@ const Landing = () => {
 				<img src="/landing-bg.png" alt="hero-bg" className="rounded-lg" />
 				<div className="flex flex-col items-center">
 					<div className="mt-10 lg:mt-0 flex flex-col gap-2 items-center justify-center z-10">
-						<h1 className="text-[41px] md:text-[50px] lg:text-[65px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500">Welcome to CareerZ</h1>
+						<h1 className="text-[40px] md:text-[50px] lg:text-[65px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 text-center">Welcome to CareerZ</h1>
 						<p className="text-xl text-gray-300 italic">"Where your Passion meets your Future..."</p>
 					</div>
 
@@ -20,6 +24,11 @@ const Landing = () => {
 					</div>
 				</div>
 			</div>
+
+			<About />
+			<Companies />
+			<Contact />
+			<Footer />
 		</>
 	)
 }

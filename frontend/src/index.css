@@ -9,5 +9,17 @@
 
     .btn-secondary {
         @apply bg-transparent border-2 border-white text-white hover:bg-white hover:text-gray-900 py-3 px-8 active:bg-white/90 focus:ring focus:ring-white/30 rounded-lg font-semibold text-lg;
-      }
+    }
+
+    .btn-submit {
+        @apply bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800 focus:ring focus:ring-blue-400 py-1.5 px-10 text-lg font-semibold rounded-xl;
+    }
+
+    .input-primary {
+        @apply rounded-lg py-1.5 px-3 bg-transparent border-2 outline-none text-gray-200 placeholder:text-gray-500
+    }
+
+    .glassmorphic {
+        @apply bg-white/5 backdrop-blur-lg shadow-md border border-white/30 rounded-lg
+    }
 }
