@@ -24,10 +24,14 @@
     }
 
     .glassmorphic-2 {
-        @apply bg-white/5 backdrop-blur-lg shadow-md border border-white/30
+        @apply bg-black/5 backdrop-blur-lg border border-white/40 active:ring-2 active:ring-blue-400
     }
 
     .gradient-text-1 {
         @apply font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-300 z-10
+    }
+
+    .text-gradient-2 {
+        @apply font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-500 z-10
     }
 }

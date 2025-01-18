@@ -8,6 +8,7 @@ import RecruiterRegister from "./pages/auth/recruiters/RecruiterRegister";
 import RecruiterLogin from "./pages/auth/recruiters/RecruiterLogin";
 import ApplicantHome from "./pages/home/ApplicantHome";
 import RecruiterHome from "./pages/home/RecruiterHome";
+import ApplicantResume from "./pages/resume/ApplicantResume";
 
 function App() {
   const { authUser } = useAuthContext();
@@ -68,6 +69,16 @@ function App() {
               )
             ) : (
               <ApplicantLogin />
+            )
+          }
+        />
+        <Route
+          path="/applicant/resume"
+          element={
+            authUser && authUser.role === "applicant" ? (
+              <ApplicantResume />
+            ) : (
+              <Navigate to="/" />
             )
           }
         />

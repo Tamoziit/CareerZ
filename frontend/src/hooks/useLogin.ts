@@ -19,7 +19,7 @@ const useLogin = () => {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    Authorization: `Bearer ${localStorage.getItem("CZ-token")}`,
+                    Authorization: `Bearer ${localStorage.getItem("CZ-token")}`
                 },
                 body: JSON.stringify({ email, password })
             });
