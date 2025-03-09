@@ -58,6 +58,7 @@ export interface AuthUser {
         x?: string | null;
         porfolio?: string | null;
     } | null;
+    token: string;
 }
 
 export interface AuthContextType {

@@ -28,37 +28,16 @@ export const buildResume = async (req: Request, res: Response) => {
             return;
         }
 
-        if (profilePic !== undefined) applicant.profilePic = profilePic;
-        if (bio !== undefined) applicant.bio = bio;
-        if (skills !== undefined) {
-            applicant.skills = [...new Set([...applicant.skills, ...skills])];
-        }
-        if (resume !== undefined) applicant.resume = resume;
+        if (profilePic !== undefined) applicant.set("profilePic", profilePic);
+        if (bio !== undefined) applicant.set("bio", bio);
+        if (skills !== undefined) applicant.set("skills", skills);
+        if (resume !== undefined) applicant.set("resume", resume);
 
-        if (education && Array.isArray(education)) {
-            education.forEach((edu) => {
-                applicant.education.push(edu);
-            });
-        }
+        if (education !== undefined) applicant.set("education", education);
+        if (experience !== undefined) applicant.set("experience", experience);
+        if (projects !== undefined) applicant.set("projects", projects);
 
-        if (experience && Array.isArray(experience)) {
-            experience.forEach((exp) => {
-                applicant.experience.push(exp);
-            });
-        }
-
-        if (projects && Array.isArray(projects)) {
-            projects.forEach((proj) => {
-                applicant.projects.push(proj);
-            });
-        }
-
-        if (socials) {
-            if (socials.linkedIn) applicant.socials!.linkedIn = socials.linkedIn;
-            if (socials.github) applicant.socials!.github = socials.github;
-            if (socials.x) applicant.socials!.x = socials.x;
-            if (socials.porfolio) applicant.socials!.porfolio = socials.porfolio;
-        }
+        if (socials !== undefined) applicant.set("socials", socials);
 
         await applicant.save();
 
@@ -77,7 +56,8 @@ export const buildResume = async (req: Request, res: Response) => {
             experience: applicant.experience,
             projects: applicant.projects,
             location: applicant.location,
-            socials: applicant.socials
+            socials: applicant.socials,
+            token: req.headers.authorization?.split(" ")[1]
         });
     } catch (error) {
         console.error("Error updating resume:", error);

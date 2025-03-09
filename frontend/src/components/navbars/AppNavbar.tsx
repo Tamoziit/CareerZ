@@ -81,7 +81,7 @@ const AppNavbar = () => {
 			{/* Desktop Navigation */}
 			<div className="hidden lg:flex gap-6">
 				{items.map((item, _idx) => (
-					<div className="flex items-center gap-2">
+					<div key={_idx} className="flex items-center gap-2">
 						<span>{item.icon}</span>
 						<Link
 							key={_idx}

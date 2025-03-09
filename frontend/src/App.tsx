@@ -12,6 +12,7 @@ import ApplicantResume from "./pages/resume/ApplicantResume";
 
 function App() {
   const { authUser } = useAuthContext();
+  console.log(authUser);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-800 to-black">
