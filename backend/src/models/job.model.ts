@@ -4,13 +4,17 @@ import connectToRecruiterDB from "../db/recruiterDB";
 const recruiterDB = connectToRecruiterDB();
 
 const JobSchema = new mongoose.Schema({
-    title: {
-        type: String,
-        required: true
-    },
     company: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Recruiters",
+        required: true
+    },
+    companyName: {
+        type: String,
+        required: true
+    },
+    title: {
+        type: String,
         required: true
     },
     description: {
@@ -26,22 +30,17 @@ const JobSchema = new mongoose.Schema({
         required: true
     },
     location: {
-        city: {
-            type: String,
-            required: true
-        },
-        state: {
-            type: String,
-            required: true
-        },
-        country: {
-            type: String,
-            required: true
-        }
+        type: String,
+        enum: ["onsite", "remote"],
+        required: true
     },
     jobType: {
         type: String,
         enum: ["full-time", "part-time", "internship", "contract"],
+        required: true
+    },
+    openings: {
+        type: Number,
         required: true
     },
     applicants: [

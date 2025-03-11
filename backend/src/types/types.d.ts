@@ -55,9 +55,38 @@ export interface Applicant {
     updatedAt: Date;
 }
 
+interface Recruiter {
+    _id: Types.ObjectId;
+    role: string;
+    companyName: string;
+    email: string;
+    publicEmail: string;
+    password: string;
+    mobileNo: string;
+    website: string;
+    logo?: string | null;
+    about?: string | null;
+    location?: {
+        city: string;
+        state: string;
+        country: string;
+        pincode: string;
+    } | null;
+    jobPostings: Types.ObjectId[];
+    socials?: {
+        linkedIn?: string | null;
+        github?: string | null;
+        x?: string | null;
+        porfolio?: string | null;
+    } | null;
+    createdAt: Date;
+    updatedAt: Date;
+}
+
 declare module "express" {
     export interface Request {
         applicant?: Applicant;
+        recruiter?: Recruiter
     }
 }
 

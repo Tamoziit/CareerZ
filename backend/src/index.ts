@@ -15,6 +15,7 @@ import adminRoutes from "./routes/admin/admin.routes";
 import applicantAuthRoutes from "./routes/applicants.routes/auth.routes";
 import applicantResumeRoutes from "./routes/applicants.routes/resume.routes";
 import recruiterAuthRoutes from "./routes/recruiters.routes/auth.routes";
+import recruiterJobRoutes from "./routes/recruiters.routes/job.routes";
 
 const PORT = process.env.PORT || 3000;
 
@@ -53,6 +54,7 @@ app.use("/api/v1/applicant/auth", applicantAuthRoutes);
 app.use("/api/v1/applicant/resume", applicantResumeRoutes);
 
 app.use("/api/v1/recruiter/auth", recruiterAuthRoutes);
+app.use("/api/v1/recruiter/jobs", recruiterJobRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server is running on Port: ${PORT}`);
