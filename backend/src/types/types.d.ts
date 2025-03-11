@@ -108,3 +108,21 @@ export interface ResumeBody {
         porfolio?: string | null;
     } | null;
 }
+
+export interface RecruiterSignupBody {
+    companyName: string;
+    email: string;
+    publicEmail: string;
+    password: string;
+    mobileNo: string;
+    website: string;
+    city: string;
+    state: string;
+    country: string;
+    pincode: string;
+}
+
+export interface RecruiterLoginBody {
+    email: string,
+    password: string
+}
