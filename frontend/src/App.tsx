@@ -9,6 +9,7 @@ import RecruiterLogin from "./pages/auth/recruiters/RecruiterLogin";
 import ApplicantHome from "./pages/home/ApplicantHome";
 import RecruiterHome from "./pages/home/RecruiterHome";
 import ApplicantResume from "./pages/resume/ApplicantResume";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const { authUser } = useAuthContext();
@@ -124,6 +125,8 @@ function App() {
           }
         />
       </Routes>
+
+      <Toaster />
     </div>
   )
 }

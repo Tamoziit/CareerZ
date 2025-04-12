@@ -4,15 +4,19 @@
 
 @layer components {
     .btn-primary {
-        @apply bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800 focus:ring focus:ring-blue-300 py-3 px-8 text-lg font-semibold rounded-lg;
+        @apply bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800 focus:ring focus:ring-blue-300 py-3 px-8 text-lg font-semibold rounded-lg text-center;
     }
 
     .btn-secondary {
-        @apply bg-transparent border-2 border-white text-white hover:bg-white hover:text-gray-900 py-3 px-8 active:bg-white/90 focus:ring focus:ring-white/30 rounded-lg font-semibold text-lg;
+        @apply bg-transparent border-2 border-white text-white hover:bg-white hover:text-gray-900 py-3 px-8 active:bg-white/90 focus:ring focus:ring-white/30 rounded-lg font-semibold text-lg text-center;
     }
 
     .btn-submit {
-        @apply bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800 focus:ring focus:ring-blue-400 py-1.5 px-10 text-lg font-semibold rounded-xl;
+        @apply bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800 focus:ring focus:ring-blue-400 py-1.5 px-10 text-lg font-semibold rounded-xl text-center;
+    }
+
+    .btn-accent {
+        @apply bg-black/15 border-2 text-gray-300 text-base text-center font-semibold rounded-md hover:bg-white/10
     }
 
     .input-primary {
@@ -24,7 +28,11 @@
     }
 
     .glassmorphic-2 {
-        @apply bg-black/5 backdrop-blur-lg border border-white/40 active:ring-2 active:ring-blue-400
+        @apply bg-black/5 backdrop-blur-lg border-2 border-white/60 active:ring-2 active:ring-blue-400
+    }
+
+    .glassmorphic-3 {
+        @apply bg-slate-800 border-2 border-white/60 active:ring-2 active:ring-blue-400
     }
 
     .gradient-text-1 {

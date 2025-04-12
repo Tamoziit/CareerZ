@@ -58,6 +58,10 @@ export interface AuthUser {
         x?: string | null;
         porfolio?: string | null;
     } | null;
+    publicEmail: string;
+    website: string;
+    about?: string | null;
+    logo?: string | null;
     token: string;
 }
 
@@ -68,4 +72,28 @@ export interface AuthContextType {
 
 export interface AuthContextProviderProps {
     children: ReactNode;
+}
+
+export interface RecruiterSignupParams {
+    companyName: string;
+    email: string;
+    publicEmail: string;
+    password: string;
+    mobileNo: string;
+    website: string;
+    city: string;
+    state: string;
+    country: string;
+    pincode: string;
+}
+
+interface RecruiterUpdatableFields {
+	logo: string;
+	publicEmail: string;
+	website: string;
+	socials: {
+		linkedIn: string;
+		x: string;
+	};
+	about: string;
 }
