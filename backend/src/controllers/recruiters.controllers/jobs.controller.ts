@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import Job from "../../models/job.model";
 import Recruiter from "../../models/recruiter.model";
+import { JobPostingProps } from "../../types/types";
 
 export const postJob = async (req: Request, res: Response) => {
     try {
@@ -8,11 +9,12 @@ export const postJob = async (req: Request, res: Response) => {
             title,
             description,
             requirements,
+            tags,
             salary,
             location,
             jobType,
             openings
-        } = req.body;
+        }: JobPostingProps = req.body;
         const company = req.recruiter?._id;
         const companyName = req.recruiter?.companyName;
 
@@ -33,12 +35,22 @@ export const postJob = async (req: Request, res: Response) => {
             return;
         }
 
+        const recruiter = await Recruiter.findById(req.recruiter?._id);
+        if (!recruiter) {
+            res.status(400).json({ error: "Cannot find recruiter data" });
+            return;
+        }
+
         const newJob = new Job({
             company,
             companyName,
+            logo: recruiter.logo,
+            publicEmail: recruiter.publicEmail,
+            website: recruiter.website,
             title,
             description,
             requirements,
+            tags,
             salary,
             location,
             jobType,
@@ -47,9 +59,8 @@ export const postJob = async (req: Request, res: Response) => {
 
         if (newJob) {
             await newJob.save();
-            await Recruiter.findByIdAndUpdate(company, {
-                $push: { jobPostings: newJob._id }
-            });
+            recruiter.jobPostings.push(newJob._id);
+            await recruiter.save();
 
             res.status(201).json(newJob);
         } else {

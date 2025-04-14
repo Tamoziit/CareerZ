@@ -30,6 +30,12 @@ const RecruiterProfile = () => {
 	});
 	const [editingField, setEditingField] = useState<EditingField | null>(null);
 
+	const getLogo = () => {
+		if (authUser?.logo && !updatableFields.logo) return authUser.logo;
+		if (updatableFields.logo) return updatableFields.logo;
+		return "/placeholderImg.png";
+	};
+
 	const handleProfilePicUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
 		setUploading(true);
 		if (e.target.files) {
@@ -75,7 +81,7 @@ const RecruiterProfile = () => {
 				<div className="flex flex-col md:flex-row items-center justify-between w-full z-10">
 					<div className="flex items-center justify-center relative">
 						<img
-							src={authUser?.logo || updatableFields.logo || "/placeholderImg.png"}
+							src={getLogo()}
 							alt="profile_bg"
 							className="w-40 h-40 rounded-full object-cover border-2 border-gray-700"
 						/>
@@ -84,7 +90,7 @@ const RecruiterProfile = () => {
 							htmlFor="profile-pic-upload"
 							className="absolute bottom-2 right-2 bg-gray-700 p-2 rounded-full cursor-pointer hover:bg-gray-800 transition"
 						>
-							{uploading || updating ? <Spinner /> : (
+							{uploading ? <Spinner /> : (
 								<div>
 									<FaPen className="size-5 text-white" />
 									<input
@@ -118,7 +124,7 @@ const RecruiterProfile = () => {
 									value: updatableFields.about,
 								})
 							}
-							className="text-gray-400 cursor-pointer hover:text-white ml-2"
+							className="text-gray-400 cursor-pointer hover:text-white ml-2 text-sm"
 						/>
 					</p>
 				</div>
@@ -138,7 +144,7 @@ const RecruiterProfile = () => {
 										value: updatableFields.publicEmail,
 									})
 								}
-								className="text-gray-400 cursor-pointer hover:text-white ml-2"
+								className="text-gray-400 cursor-pointer hover:text-white ml-2 text-sm"
 							/>
 						</span>
 					</div>
@@ -162,7 +168,7 @@ const RecruiterProfile = () => {
 										value: updatableFields.website,
 									})
 								}
-								className="text-gray-400 cursor-pointer hover:text-white ml-2"
+								className="text-gray-400 cursor-pointer hover:text-white ml-2 text-sm"
 							/>
 						</div>
 					</div>
@@ -209,7 +215,7 @@ const RecruiterProfile = () => {
 										value: updatableFields.socials.linkedIn,
 									})
 								}
-								className="text-gray-400 cursor-pointer hover:text-white mt-0.5"
+								className="text-gray-400 cursor-pointer hover:text-white mt-0.5 text-sm"
 							/>
 						</div>
 					) : (
@@ -226,7 +232,7 @@ const RecruiterProfile = () => {
 										value: updatableFields.socials.linkedIn,
 									})
 								}
-								className="text-gray-400 cursor-pointer hover:text-white mt-0.5"
+								className="text-gray-400 cursor-pointer hover:text-white mt-0.5 text-sm"
 							/>
 						</div>
 					)}
@@ -249,7 +255,7 @@ const RecruiterProfile = () => {
 										value: updatableFields.socials.linkedIn,
 									})
 								}
-								className="text-gray-400 cursor-pointer hover:text-white mt-0.5"
+								className="text-gray-400 cursor-pointer hover:text-white mt-0.5 text-sm"
 							/>
 						</div>
 					) : (
@@ -266,7 +272,7 @@ const RecruiterProfile = () => {
 										value: updatableFields.socials.x,
 									})
 								}
-								className="text-gray-400 cursor-pointer hover:text-white mt-0.5"
+								className="text-gray-400 cursor-pointer hover:text-white mt-0.5 text-sm"
 							/>
 						</div>
 					)}
@@ -280,7 +286,7 @@ const RecruiterProfile = () => {
 						disabled={uploading}
 						onClick={handleSave}
 					>
-						{uploading ? <Spinner /> : "Save Changes"}
+						{updating ? <Spinner /> : "Save Changes"}
 					</button>
 				</div>
 

@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
-import AppNavbar from "../../components/navbars/AppNavbar";
 import { useAuthContext } from "../../context/AuthContext";
 import RecruiterProfile from "../../components/RecruiterProfile";
+import RecNavbar from "../../components/navbars/RecNavbar";
 
 const RecruiterHome = () => {
   const { authUser } = useAuthContext();
 
   return (
     <>
-      <AppNavbar />
+      <RecNavbar />
 
       <div className="pt-20 lg:pt-32 p-4 flex w-full items-center md:justify-center sm:justify-center lg:justify-around flex-col lg:flex-row">
         <img src="/recruiterHome.png" alt="hero-bg" className="rounded-lg w-[550px] lg:w-[650px]" />
@@ -24,7 +24,7 @@ const RecruiterHome = () => {
           </div>
 
           <div className="mt-8 z-10 flex gap-8 lg:gap-[50px]">
-            <Link to="/recruiter/post-job" className="btn-primary !px-14">Post a Job</Link>
+            <Link to="/recruiter/post-jobs" className="btn-primary !px-14">Post a Job</Link>
             <Link to="/recruiter/applicants" className="btn-secondary">View Applicants</Link>
           </div>
         </div>

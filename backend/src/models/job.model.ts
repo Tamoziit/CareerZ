@@ -13,6 +13,18 @@ const JobSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    logo: {
+        type: String,
+        required: true
+    },
+    publicEmail: {
+        type: String,
+        required: true
+    },
+    website: {
+        type: String,
+        required: true
+    },
     title: {
         type: String,
         required: true
@@ -22,6 +34,10 @@ const JobSchema = new mongoose.Schema({
         required: true
     },
     requirements: {
+        type: [String],
+        default: []
+    },
+    tags: {
         type: [String],
         default: []
     },

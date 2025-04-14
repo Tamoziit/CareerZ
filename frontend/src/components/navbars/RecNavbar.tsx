@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { FaFileAlt, FaHome } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
 import { MdOutlineLogout } from "react-icons/md";
 import { GiSuitcase } from "react-icons/gi";
-import { MdAutoGraph } from "react-icons/md";
 import { LuMessageSquareText } from "react-icons/lu";
 import { Link } from "react-router-dom";
-import useLogout from "../../hooks/useLogout";
 import { FaAward } from "react-icons/fa6";
+import { PiStudentBold } from "react-icons/pi";
+import useLogout from "../../hooks/useLogout";
 
-const AppNavbar = () => {
+const RecNavbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const { loading, logout } = useLogout();
 
@@ -16,33 +16,28 @@ const AppNavbar = () => {
 		{
 			name: "Home",
 			icon: <FaHome />,
-			link: "/applicant/home",
+			link: "/recruiter/home",
 		},
 		{
-			name: "Resume",
-			icon: <FaFileAlt />,
-			link: "/applicant/resume",
-		},
-		{
-			name: "Jobs",
+			name: "Your Postings",
 			icon: <GiSuitcase />,
-			link: "/applicant/jobs",
+			link: "/recruiter/postings",
 		},
 		{
-			name: "Internships",
-			icon: <MdAutoGraph />,
-			link: "/applicant/internships",
+			name: "Applicants",
+			icon: <PiStudentBold />,
+			link: "/recruiter/applicants",
+		},
+		{
+			name: "Recruited Candidates",
+			icon: <FaAward />,
+			link: "/recruiter/recruited-candidates",
 		},
 		{
 			name: "Messages",
 			icon: <LuMessageSquareText />,
-			link: "/applicant/messages",
+			link: "/recruiter/messages",
 		},
-		{
-			name: "Applications",
-			icon: <FaAward />,
-			link: "/applicant/applications",
-		}
 	];
 
 	const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -140,4 +135,4 @@ const AppNavbar = () => {
 	);
 };
 
-export default AppNavbar;
+export default RecNavbar;

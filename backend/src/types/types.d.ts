@@ -155,3 +155,14 @@ export interface RecruiterLoginBody {
     email: string,
     password: string
 }
+
+export interface JobPostingProps {
+    title: string;
+    description: string;
+    requirements: string[];
+    tags: string[];
+    salary: number;
+    location: "onsite" | "remote";
+    jobType: "full-time" | "part-time" | "internship" | "contract";
+    openings: number;
+}
