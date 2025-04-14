@@ -87,13 +87,35 @@ export interface RecruiterSignupParams {
     pincode: string;
 }
 
-interface RecruiterUpdatableFields {
-	logo: string;
-	publicEmail: string;
-	website: string;
-	socials: {
-		linkedIn: string;
-		x: string;
-	};
-	about: string;
+export interface RecruiterUpdatableFields {
+    logo: string;
+    publicEmail: string;
+    website: string;
+    socials: {
+        linkedIn: string;
+        x: string;
+    };
+    about: string;
+}
+
+export interface JobFormData {
+    title: string;
+    description: string;
+    requirements: string[];
+    salary: string;
+    location: "onsite" | "remote";
+    jobType: "full-time" | "part-time" | "internship" | "contract";
+    openings: string;
+    tags: string[];
+}
+
+export interface PostJobProps {
+    title: string;
+    description: string;
+    requirements: string[];
+    salary: number;
+    location: "onsite" | "remote";
+    jobType: "full-time" | "part-time" | "internship" | "contract";
+    openings: number;
+    tags: string[];
 }
